@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.topics {
+  list-style: none;
+  padding: 5px;
+}
+.topics li {
+  display: inline-block;
+}
+.link {
+  margin: 5px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--semi-dark);
+}
+.link:hover {
+  background-color: #ffffffa6;
+  color: var(--primary-blue);
+}
+.active-link {
+  font-weight: 700;
+  color: var(--dark-font);
+}
