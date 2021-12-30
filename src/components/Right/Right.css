@@ -1,73 +1,73 @@
 .right-container {
-    width: 100%;
-    padding: 25px;
+  width: 100%;
+  padding: 25px;
 }
 .default {
-    background-color: var(--light-grey);
-    box-shadow: var(--header-shadow);
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    width: 330px;
-    word-wrap: break-word;
+  background-color: var(--light-grey);
+  box-shadow: var(--header-shadow);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 330px;
+  word-wrap: break-word;
 }
 .card-right h4 {
-    margin: 0 0 25px 0;
+  margin: 0 0 25px 0;
 }
 .card-right p {
-    margin-bottom: 0;
+  margin-bottom: 0;
+}
+.card-right a {
+  text-decoration: none;
 }
 
 .right-container img {
-    width: 100%;
+  width: 100%;
 }
 .long-card {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
 }
 .long-card img {
-    border-radius: 8px 8px 0 0 ;
-    height: 135px;
-    object-fit: cover;
-    object-position: center;
+  border-radius: 8px 8px 0 0;
+  height: 135px;
+  object-fit: cover;
+  object-position: center;
 }
 .long-card h3 {
-    margin: 15px;
-    font-size: 1.3rem;
+  margin: 15px;
+  font-size: 1.3rem;
 }
 .long-card p {
-    margin: 0;
-    padding: 15px;
-    color: var(--semi-dark);
-    border-top: 1px solid var(--bg-grey);
-    transition: 150ms;
+  margin: 0;
+  padding: 15px;
+  color: var(--semi-dark);
+  border-top: 1px solid var(--bg-grey);
+  transition: 150ms;
 }
 .long-card p:hover {
-    background-color: var(--plain-white);
-    color: var(--primary-blue);
+  background-color: var(--plain-white);
+  color: var(--primary-blue);
 }
 .btn {
-    width: 300px;
-    font-size: 1rem;
-    padding: 10px;
-    margin: 15px;
-    border: none;
-    border-radius: 8px;
+  width: 300px;
+  font-size: 1rem;
+  padding: 10px;
+  margin: 15px;
+  border: none;
+  border-radius: 8px;
 }
 .btn-blue {
-    background-color: var(--primary-blue);
-    color: var(--plain-white);
-    margin-bottom: 0;
-}
-.btn-blue:hover {
-    background-color: ;
+  background-color: var(--primary-blue);
+  color: var(--plain-white);
+  margin-bottom: 0;
 }
 
-@media screen and (max-width:1100px) {
-    .right {
-        display: none;
-    }
+@media screen and (max-width: 1100px) {
+  .right-container {
+    display: none;
+  }
 }
