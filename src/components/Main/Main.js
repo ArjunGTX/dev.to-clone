@@ -3,7 +3,7 @@ import "./Main.css";
 import Card from "../Card/Card";
 import { NavLink } from "react-router-dom";
 import { instance } from "../../axios/Instance";
-import { timeAgo, getLink, getWindowHeights } from "../../util/utility";
+import { timeAgo, getLink } from "../../util/utility";
 import Skeleton from "../Skeleton/Skeleton";
 
 function Main({ page }) {
@@ -11,7 +11,7 @@ function Main({ page }) {
   const [isEmpty, setIsEmpty] = useState(true);
   let pageRef = useRef(1);
   useEffect(() => {
-    setTimeout(() => getArticles(page, pageRef.current), 1500);
+    setTimeout(() => getArticles(page, pageRef.current), 1200);
     return () => {
       setArticles([]);
       setIsEmpty(true);
@@ -36,8 +36,10 @@ function Main({ page }) {
   }
 
   const scrollHandler = () => {
-    const [pageHeight, pageBottom] = getWindowHeights();
-    if (pageBottom >= pageHeight) {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight
+    ) {
       pageRef.current += 2;
       let link = getLink(page, pageRef.current);
       instance
