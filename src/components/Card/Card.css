@@ -7,7 +7,7 @@
   border-radius: 8px;
   background-color: var(--plain-white);
   cursor: pointer;
-  box-shadow: 0px 0px 2px var(--semi-dark);
+  box-shadow: 0px 0px 2px var(--shadow-grey);
   margin: 0 5px 10px 5px;
 }
 .cover {

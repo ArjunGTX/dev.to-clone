@@ -8,7 +8,7 @@
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
-  width: 330px;
+  width: 320px;
   word-wrap: break-word;
 }
 .card-right h4 {
@@ -53,7 +53,7 @@
   color: var(--primary-blue);
 }
 .btn {
-  width: 300px;
+  width: 290px;
   font-size: 1rem;
   padding: 10px;
   margin: 15px;
