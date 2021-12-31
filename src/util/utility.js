@@ -57,7 +57,7 @@ function getLink(query, pageNo) {
   let link = "";
   switch (query) {
     case "relevant":
-      link = `?page=${pageNo}&per_page=20&top=2`;
+      link = `/latest?page=${pageNo}&per_page=20&top=2`;
       break;
     case "latest":
       link = `/latest?page=${pageNo}&per_page=20`;

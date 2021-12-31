@@ -13,12 +13,13 @@ body {
   background-color: var(--bg-grey);
   display: flex;
   flex-direction: column;
+  text-rendering: optimizeSpeed;
 }
 :root {
   --dark-font: rgb(9, 9, 9);
   --plain-white: #ffffff;
   --bg-grey: #efefef;
-  --shadow-grey: #cecece;
+  --shadow-grey: #c0bebe;
   --light-grey: #f8f9fa;
   --semi-dark: rgb(61, 61, 61);
   --header-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px;
@@ -40,7 +41,7 @@ body {
 .container {
   margin-top: 60px;
   display: grid;
-  grid-template-columns: 1fr 1.51fr 1.2fr;
+  grid-template-columns: 0.9fr 1.55fr 1.13fr;
 }
 
 @media screen and (max-width: 1100px) {

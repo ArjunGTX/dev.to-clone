@@ -15,6 +15,7 @@ function Card({
   tags,
   fromNow,
 }) {
+  console.log(tags);
   return (
     <div className="card">
       {/* conditionally rendering cover image */}

@@ -85,6 +85,7 @@ function Main({ page }) {
           </NavLink>
         </li>
       </ul>
+
       {isEmpty &&
         [1, 2, 3, 4, 5].map((value) => (
           <Skeleton cover={value == 1 ? true : false} key={value} />
@@ -100,7 +101,7 @@ function Main({ page }) {
               reactionCount={article.public_reactions_count}
               readTime={article.reading_time_minutes}
               publishedDate={article.readable_publish_date}
-              tags={articles.tag_list}
+              tags={article.tag_list}
               user={article.user.name}
               dp={article.user.profile_image}
               fromNow={timeAgo(article.published_at)}
