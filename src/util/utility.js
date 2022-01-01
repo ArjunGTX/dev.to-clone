@@ -15,40 +15,40 @@ function timeAgo(date) {
   time = Math.floor(time / 60);
   if (time <= 60) {
     if (time == 1) {
-      return `1 Minute ago`;
+      return `1 minute ago`;
     } else {
-      return `${time} Minutes ago`;
+      return `${time} minutes ago`;
     }
   }
   time = Math.floor(time / 60);
   if (time <= 24) {
     if (time == 1) {
-      return `1 Hour ago`;
+      return `1 hour ago`;
     } else {
-      return `${time} Hours ago`;
+      return `${time} hours ago`;
     }
   }
   time = Math.floor(time / 24);
   if (time <= 30) {
     if (time == 1) {
-      return `1 Day ago`;
+      return `1 day ago`;
     } else {
-      return `${time} Days ago`;
+      return `${time} days ago`;
     }
   }
   time = Math.floor(time / 30);
   if (time <= 12) {
     if (time == 1) {
-      return `1 Month ago`;
+      return `1 month ago`;
     } else {
-      return `${time} Months ago`;
+      return `${time} months ago`;
     }
   }
   time = Math.floor(time / 12);
   if (time == 1) {
-    return `1 Year ago`;
+    return `1 year ago`;
   } else {
-    return `${time} Years ago`;
+    return `${time} years ago`;
   }
 }
 
@@ -73,6 +73,7 @@ const navList = [
   { nav: "🏠 Home", id: 1 },
   { nav: "📚 Reading List", id: 2 },
   { nav: "📃 Listings", id: 3 },
+  { nav: "🎙️ Podcasts", id: 3 },
   { nav: "📹 Videos", id: 4 },
   { nav: "🏷️ Tags", id: 5 },
   { nav: "💡 FAQ", id: 6 },
