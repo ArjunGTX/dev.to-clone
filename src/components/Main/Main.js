@@ -9,45 +9,59 @@ import Skeleton from "../Skeleton/Skeleton";
 function Main({ page }) {
   const [articles, setArticles] = useState([]);
   const [isEmpty, setIsEmpty] = useState(true);
+
+  //ref for page number
   let pageRef = useRef(1);
+
   useEffect(() => {
-    setTimeout(() => getArticles(page, pageRef.current), 1200);
+    //1200ms delay to demonstrate Skeleton UI
+    setTimeout(() => fetchArticles(page, pageRef.current), 1200);
     return () => {
       setArticles([]);
+      //enabling skeleton UI
       setIsEmpty(true);
       pageRef.current = 1;
     };
   }, [page]);
 
   useEffect(() => {
+    //event listener to be triggered when scroll reaches bottom of the page
     window.addEventListener("scroll", scrollHandler);
     return () => window.removeEventListener("scroll", scrollHandler);
   });
 
-  function getArticles(query, pageNo) {
+  const fetchArticles = (query, pageNo) => {
     let link = getLink(query, pageNo);
     instance
       .get(link)
       .then((response) => {
-        setArticles(response.data);
+        if (pageNo === 1) {
+          //replacing all the articles
+          setArticles(response.data);
+        } else {
+          //adding new articles to the existing list
+          setArticles((prevArticles) => [...prevArticles, ...response.data]);
+        }
+        //disabling Skeleton UI
         setIsEmpty(false);
       })
-      .catch((err) => console.log(err));
-  }
+      .catch((err) => {
+        setTimeout(() => {
+          console.log(err);
+          alert("Something went wrong!! Try again later.");
+        }, 3000);
+      });
+  };
 
   const scrollHandler = () => {
     if (
+      //checking whether the scroll bar has reached bottom of the page
       window.innerHeight + document.documentElement.scrollTop >=
       document.documentElement.offsetHeight
     ) {
       pageRef.current += 2;
-      let link = getLink(page, pageRef.current);
-      instance
-        .get(link)
-        .then((response) => {
-          setArticles((state) => [...state, ...response.data]);
-        })
-        .catch((err) => console.log(err));
+      //fetching next page
+      fetchArticles(page, pageRef.current);
     }
   };
 
@@ -87,6 +101,7 @@ function Main({ page }) {
       </ul>
 
       {isEmpty &&
+        //displaying skeleton UI
         [1, 2, 3, 4, 5].map((value) => (
           <Skeleton cover={value == 1 ? true : false} key={value} />
         ))}

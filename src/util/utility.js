@@ -73,14 +73,14 @@ const navList = [
   { nav: "🏠 Home", id: 1 },
   { nav: "📚 Reading List", id: 2 },
   { nav: "📃 Listings", id: 3 },
-  { nav: "🎙️ Podcasts", id: 3 },
-  { nav: "📹 Videos", id: 4 },
-  { nav: "🏷️ Tags", id: 5 },
-  { nav: "💡 FAQ", id: 6 },
-  { nav: "🛍️ DEV Shop", id: 7 },
-  { nav: "❤️ Sponsors", id: 8 },
-  { nav: "🖥️ About", id: 9 },
-  { nav: "📯 Contact", id: 10 },
+  { nav: "🎙️ Podcasts", id: 4 },
+  { nav: "📹 Videos", id: 5 },
+  { nav: "🏷️ Tags", id: 6 },
+  { nav: "💡 FAQ", id: 7 },
+  { nav: "🛍️ DEV Shop", id: 8 },
+  { nav: "❤️ Sponsors", id: 9 },
+  { nav: "🖥️ About", id: 10 },
+  { nav: "📯 Contact", id: 11 },
 ];
 
 const otherList = [

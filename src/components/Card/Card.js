@@ -3,19 +3,21 @@ import { FaRegComment } from "react-icons/fa";
 import { RiHeart2Line } from "react-icons/ri";
 import "./Card.css";
 
-function Card({
-  cover,
-  title,
-  dp,
-  user,
-  commentCount,
-  reactionCount,
-  readTime,
-  publishedDate,
-  tags,
-  fromNow,
-}) {
-  console.log(tags);
+function Card(
+  {
+    cover,
+    title,
+    dp,
+    user,
+    commentCount,
+    reactionCount,
+    readTime,
+    publishedDate,
+    tags,
+    fromNow,
+  },
+  ref
+) {
   return (
     <div className="card">
       {/* conditionally rendering cover image */}
