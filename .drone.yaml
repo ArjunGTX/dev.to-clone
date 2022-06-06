@@ -1,0 +1,25 @@
+kind: pipeline
+type: docker
+name: default
+steps:
+  - name: Clone Repo
+    image: node
+    commands:
+      - git clone https://github.com/ArjunGTX/ArjunGTX.git
+  - name: Install Dependency
+    image: node
+    commands:
+      - npm install
+    depends_on:
+      - Clone Repo
+      - clone
+  - name: build
+    image: node
+    commands:
+      - npm run build
+    depends_on:
+      - Install Dependency
+  - name: clone
+    image: node
+    commands:
+      - git clone https://github.com/ArjunGTX/dev.to-clone.git
