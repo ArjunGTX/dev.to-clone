@@ -10,6 +10,8 @@ steps:
     image: node:latest
     commands:
       - npm run build
+    environment:
+      CI: "false"
     depends_on:
       - Install Dependencies
   - name: Publish
