@@ -17,7 +17,7 @@ const main = async () => {
   try {
     await generateZip();
     const response = await axios.default.post(
-      "https://api.patr.cloud/auth/login",
+      "https://api.patr.cloud/auth/sign-in",
       {
         userId: process.env.USER_ID,
         password: process.env.PASSWORD,
