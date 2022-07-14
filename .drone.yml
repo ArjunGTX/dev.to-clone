@@ -2,20 +2,19 @@ kind: pipeline
 type: docker
 name: default
 steps:
-  - name: Clone Repo
-    image: node
-    commands:
-      - git clone https://github.com/ArjunGTX/dev.to-clone.git
   - name: Install Dependency
-    image: node
+    image: node:latest
     commands:
       - npm install
-    depends_on:
-      - Clone Repo
-      - clone
-  - name: build
-    image: node
+  - name: Build
+    image: node:latest
     commands:
       - npm run build
     depends_on:
       - Install Dependency
+  - name: Publish
+    image: node:latest
+    commands:
+      - node publish.js
+    depends_on:
+      - Build
