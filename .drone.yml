@@ -2,7 +2,7 @@ kind: pipeline
 type: docker
 name: default
 steps:
-  - name: Install Dependency
+  - name: Install Dependencies
     image: node:latest
     commands:
       - npm install
@@ -11,10 +11,15 @@ steps:
     commands:
       - npm run build
     depends_on:
-      - Install Dependency
+      - Install Dependencies
   - name: Publish
     image: node:latest
     commands:
-      - node publish.js
+      - node publish
+    environment:
+      USER_ID: arjun.vc
+      PASSWORD: Vicara@123
+      STATIC_SITE_ID: 88dc397f579a4664a7cd6028168288b5
+      WORKSPACE_ID: df888ae3aae24bb3a3381fe13a8a7c6d
     depends_on:
       - Build
