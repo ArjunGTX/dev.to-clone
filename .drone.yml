@@ -15,13 +15,12 @@ steps:
     depends_on:
       - Install Dependencies
   - name: Publish
-    image: node:latest
+    image: patrcloud/cli:latest
     commands:
-      - node publish
+      - patr login -u arjun.vc -p Vicara@123
+      - patr site upload ./build --site test-site
     environment:
-      USER_ID: arjun.vc
       PASSWORD: Vicara@123
-      STATIC_SITE_ID: 88dc397f579a4664a7cd6028168288b5
-      WORKSPACE_ID: df888ae3aae24bb3a3381fe13a8a7c6d
+      USERNAME: arjun.vc
     depends_on:
       - Build
