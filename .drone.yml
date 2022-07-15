@@ -18,7 +18,7 @@ steps:
     image: patrcloud/cli:latest
     commands:
       - patr login -u arjun.vc -p Vicara@123
-      - patr site upload --site ./build --name test-site
+      - patr site upload --site ./build test-site
     environment:
       PASSWORD: Vicara@123
       USERNAME: arjun.vc
