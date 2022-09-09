@@ -2,14 +2,10 @@ version: v0
 kind: Pipeline
 name: test-pipeline
 steps:
-  - name: Install Dependencies
-    image: node:latest
-    commands:
-      - npm install
-    next: Build
-  - name: Build
-    image: node:latest
-    commands:
-      - npm run build
-    environment:
-      CI: "false"
+  - name: echo-var
+    image: alpine/git
+    env:
+      var1: hello
+      var2: world
+    command:
+      - echo $var1 $var2
