@@ -5,6 +5,6 @@ steps:
   - name: echo-var
     image: alpine/git
     env:
-      var: hello
+      var: "hello world"
     command:
       - echo $var
