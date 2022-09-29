@@ -7,7 +7,13 @@ steps:
     commands:
       - npm install
     next:
-      - If Else
+      - Branch
+  - name: Branch
+    when:
+      branch:
+        - master
+    then: Prettier
+    else: Event
   - name: Build Code
     image: node:latest
     commands:
@@ -18,9 +24,8 @@ steps:
     image: node
     commands:
       - npm run pretty
-  - name: If Else
+  - name: Event
     when:
-      branch:
-        - master
-    then: Prettier
-    else: Build Code
+      event:
+        - commit
+    then: Build Code
