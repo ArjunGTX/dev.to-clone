@@ -1,4 +1,5 @@
 // Publish to Patr
+// Just create a commit
 const fs = require("fs");
 const axios = require("axios");
 const zipFolder = require("zip-folder");
