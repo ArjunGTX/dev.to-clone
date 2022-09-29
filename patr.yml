@@ -1,10 +1,26 @@
 version: v0
 kind: Pipeline
-name: test-pipeline
+name: default
 steps:
-  - name: echo-var
-    image: alpine/git
-    env:
-      var: "hello world"
-    command:
-      - echo $var
+  - name: Install Dependency
+    image: node:latest
+    commands:
+      - npm install
+    next:
+      - If Else
+  - name: Build Code
+    image: node:latest
+    commands:
+      - npm run build
+    environment:
+      CI: "false"
+  - name: Prettier
+    image: node
+    commands:
+      - npm run pretty
+  - name: If Else
+    when:
+      branch:
+        - master
+    then: Prettier
+    else: Build Code
