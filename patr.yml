@@ -7,25 +7,8 @@ steps:
     commands:
       - npm install
     next:
-      - Branch
-  - name: Branch
-    when:
-      branch:
-        - master
-    then: Prettier
-    else: Event
+      - Build Code
   - name: Build Code
     image: node:latest
     commands:
       - npm run build
-    environment:
-      CI: "false"
-  - name: Prettier
-    image: node
-    commands:
-      - npm run pretty
-  - name: Event
-    when:
-      event:
-        - commit
-    then: Build Code
