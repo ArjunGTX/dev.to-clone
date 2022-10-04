@@ -2,13 +2,13 @@ version: v0
 kind: Pipeline
 name: default
 steps:
-  - name: Install Dependency
+  - name: install-dependency
     image: node:latest
     commands:
       - npm install
     next:
-      - Build Code
-  - name: Build Code
+      - build-code
+  - name: build-code
     image: node:latest
     commands:
       - npm run build
