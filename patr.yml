@@ -6,3 +6,8 @@ steps:
     image: node:latest
     commands:
       - npm install
+    next: Build Code
+  - name: Build Code
+    image: node:latest
+    commands:
+      - npm run build
