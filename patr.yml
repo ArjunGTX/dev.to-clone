@@ -6,18 +6,3 @@ steps:
     image: node:latest
     commands:
       - npm install
-    next: Publish on Patr
-  - name: Publish on Patr
-    image: patrcloud/cli:latest
-    commands:
-      - patr login -u $USERNAME -p $PASSWORD
-      - $BUILD_COMMAND
-      - patr site upload --site $PUBLISH_DIRECTORY "$STATIC_SITE"
-    environment:
-      USERNAME: samyak-gangwal
-      PASSWORD:
-        from_secret: patr-password
-      WORKING_DIRECTORY: ""
-      PUBLISH_DIRECTORY: ./build
-      STATIC_SITE: dev from
-      BUILD_COMMAND: npm run build
