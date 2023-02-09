@@ -1,29 +1,39 @@
 version: v0
-kind: Pipeline
 name: default
+services: []
 steps:
   - name: Install Dependency
     image: node:latest
     commands:
       - npm install
-    next: Is Development
-  - name: Is Development
-    when: 
-      branch: 
-        - develop
-      event:
-        - pull
-    then: Build Code
-    else: Is Production
-  - name: Is Production
-    when: 
-      branch: 
+    next: Is Prod push
+  - name: Is Prod push
+    when:
+      branch:
         - master
-      event: 
+      event:
         - commit
-    then: Build Code
-  - name: Build Code
+    then: Build code
+    else: Is Prod PR
+  - name: Build code
     image: node:latest
     commands:
       - npm run build
-
+    environment:
+      CI: "false"
+  - name: Is Prod PR
+    when:
+      branch:
+        - master
+      event:
+        - pull
+    then: Linter
+    else: Prettier
+  - name: Linter
+    image: node:latest
+    commands:
+      - npm run pretty
+  - name: Prettier
+    image: node:latest
+    commands:
+      - npm run pretty
