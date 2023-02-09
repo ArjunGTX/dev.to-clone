@@ -1,5 +1,6 @@
 version: v0
 name: default
+kind: Pipeline
 steps:
   - name: Install Dependency
     image: node:latest
