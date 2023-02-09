@@ -1,6 +1,5 @@
 version: v0
 name: default
-services: []
 steps:
   - name: Install Dependency
     image: node:latest
