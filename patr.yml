@@ -1,6 +1,7 @@
 version: v0
 name: default
 kind: Pipeline
+services: []
 steps:
   - name: Install Dependency
     image: node:latest
@@ -11,6 +12,8 @@ steps:
     when:
       branch:
         - master
+      event:
+        - commit
     then: Build code
     else: Is Prod PR
   - name: Build code
@@ -21,6 +24,8 @@ steps:
       CI: "false"
   - name: Is Prod PR
     when:
+      branch:
+        - master
       event:
         - pull
     then: Linter
