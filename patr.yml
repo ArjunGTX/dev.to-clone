@@ -1,13 +1,13 @@
 version: v0
-name: default
 kind: Pipeline
+name: Default
 services: []
 steps:
   - name: Install Dependency
     image: node:latest
     commands:
       - npm install
-    next: Is Prod push
+    next: Test 1
   - name: Is Prod push
     when:
       branch:
@@ -15,21 +15,22 @@ steps:
       event:
         - commit
     then: Build code
-    else: Is Prod PR
+    else: Test 2
   - name: Build code
     image: node:latest
     commands:
       - npm run build
     environment:
       CI: "false"
+    next: Linter
   - name: Is Prod PR
     when:
       branch:
         - master
       event:
         - pull
-    then: Linter
-    else: Prettier
+    then: tet 3
+    else: Test 5
   - name: Linter
     image: node:latest
     commands:
@@ -38,3 +39,56 @@ steps:
     image: node:latest
     commands:
       - npm run pretty
+    next: Is Prod PR
+  - name: Test 1
+    image: sdfdg
+    commands:
+      - fdghfh
+    next: Is Prod push
+  - name: Test 2
+    image: sdfsdf
+    commands:
+      - sdfdsf
+    next: Prettier
+  - name: tet 3
+    image: dfgfdg
+    commands:
+      - fhfg
+    next: Test 4
+  - name: Test 4
+    image: sdfsdf
+    commands:
+      - sdfd
+  - name: Is Dev
+    when:
+      branch:
+        - develop
+      event:
+        - commit
+        - pull
+    then: Test 7
+    else: Test 9
+  - name: Test 5
+    image: asdasd
+    commands:
+      - ada
+    next: Test 6
+  - name: Test 6
+    image: sfsd
+    commands:
+      - sdfsdf
+    next: Is Dev
+  - name: Test 7
+    image: sdfsd
+    commands:
+      - sdfsd
+    next: Test 8
+  - name: Test 8
+    image: asda
+    commands:
+      - adasd
+  - name: Test 9
+    image: asdas
+    commands:
+      - adasd
+
